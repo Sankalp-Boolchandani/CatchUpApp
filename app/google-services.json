@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "745142507236",
+    "fire"
+    "project_id": "chatapp-61c7f",
+    "storage_bucket": "chatapp-61c7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:745142507236:android:cad3af3695dff33d873ef1",
+        "android_client_info": {
+          "package_name": "com.sankalp.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "745142507236-inuo8e852jktk097e7fr1r4ltk58quu0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sankalp.chatapp",
+            "certificate_hash": "44f8479f106b90d9aacc2a4034c80dab8363a792"
+          }
+        },
+        {
+          "client_id": "745142507236-erqbnuuraubnddrgbmpkubcs8or87o3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7kXNebEMcsYf4HL9Az6PEjXmRHDBla5s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "745142507236-erqbnuuraubnddrgbmpkubcs8or87o3p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
