@@ -35,8 +35,11 @@ public class ChatDetailedActivity extends AppCompatActivity {
         binding=ActivityChatDetailedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        auth=FirebaseAuth.getInstance();
+
         database=FirebaseDatabase.getInstance("https://chatapp-61c7f-default-rtdb.firebaseio.com/");
+        auth=FirebaseAuth.getInstance();
+
+
         final String senderId=auth.getUid();
         String recieveId=getIntent().getStringExtra("userId");
         String userName=getIntent().getStringExtra("username");
@@ -61,12 +64,14 @@ public class ChatDetailedActivity extends AppCompatActivity {
         final String senderRoom=senderId+recieveId;
         final String recieverRoom=recieveId+senderId;
 
-        database.getReference().child("chats").child(senderRoom).addValueEventListener(new ValueEventListener() {
+        database.getReference().child("chats")
+                .child(senderRoom)
+                .addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot snapshots) {
                 messageModals.clear();
-                for (DataSnapshot childSnapshot:dataSnapshot.getChildren()){
-                    MessageModal modal=childSnapshot.getValue(MessageModal.class);
+                for (DataSnapshot snapshot:snapshots.getChildren()){
+                    MessageModal modal=snapshot.getValue(MessageModal.class);
                     messageModals.add(modal);
                 }
                 chatAdapter.notifyDataSetChanged();
@@ -87,7 +92,8 @@ public class ChatDetailedActivity extends AppCompatActivity {
                 binding.etSendMsg.setText("");
 
                 database.getReference().child("chats")
-                        .child(senderRoom).push()
+                        .child(senderRoom)
+                        .push()
                         .setValue(modal).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
